@@ -39,7 +39,7 @@ def app():
         )
 
         data = st.file_uploader(
-            "Upload a vector dataset", type=["geojson", "kml", "zip", "tab"]
+            "Upload land plot", type=["geojson", "kml", "zip", "tab"]
         )
 
         container = st.container()
