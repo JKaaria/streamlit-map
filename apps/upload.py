@@ -31,15 +31,24 @@ def app():
 
     with row1_col2:
 
-        backend = leafmap.foliumap
+        backend = st.selectbox(
+            "Select a plotting backend", ["folium", "kepler.gl", "pydeck"], index=2
+        )
+
+        if backend == "folium":
+            import leafmap.foliumap as leafmap
+        elif backend == "kepler.gl":
+            import leafmap.kepler as leafmap
+        elif backend == "pydeck":
+            import leafmap.deck as leafmap
 
         url = st.text_input(
-            "Enter a URL to a vector dataset",
-            "https://github.com/giswqs/streamlit-geospatial/raw/master/data/us_states.geojson",
+            "Enter a URL to plot dataset",
+            "",
         )
 
         data = st.file_uploader(
-            "Upload land plot", type=["geojson", "kml", "zip", "tab"]
+            "Upload a plot dataset", type=["geojson", "kml", "zip", "tab"]
         )
 
         container = st.container()
