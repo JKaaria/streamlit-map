@@ -43,12 +43,12 @@ def app():
             import leafmap.deck as leafmap
 
         url = st.text_input(
-            "Enter a URL to plot dataset",
-            "",
+            "Enter a URL to a dataset",
+            "https://github.com/giswqs/streamlit-geospatial/raw/master/data/us_states.geojson",
         )
 
         data = st.file_uploader(
-            "Upload a plot dataset", type=["geojson", "kml", "zip", "tab"]
+            "Upload a dataset", type=["geojson", "kml", "zip", "tab"]
         )
 
         container = st.container()
